@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <div class="row mx_auto">
+    {% for movie in movies %}
+    <div class="col-9 col-sm-12 col-md-4 xol-lg-4" style="padding: 10px;">
+      <div class="card" style="min-width:18rem;height:100%">
+        <img class="card-img-top" src="{{movie.image.url}}" alt="{{movie.name}}" height="400px" width="400px">
+		<div class="card-body text-center">
+          <h4 class="card-text">{{movie.name}}</h4>
+          <h5 class="card-text">{{movie.movie_type}}</h5>
+          <p class="card-text">{{movie.movie_lang}}</p>
+          <a class="btn btn-primary" href="{% url 'movie:about' movie.id %}">Go to details</a>
+        </div>
+      </div>
+  </div> 
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
