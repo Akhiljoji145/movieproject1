@@ -1,10 +1,13 @@
 .navbar
 {
 	margin-bottom: 10px;
+	background-color: #001F3F;
 }
 footer
 {
 	margin-top: 10px;
+	background-color: #001F3F;
+	color:white;
 }
 center
 {
