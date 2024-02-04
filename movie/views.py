@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Movie
 from django.urls import reverse
+from .forms import MovieForm
 # Create your views here.
 def movie_list(request):
 	movies=Movie.objects.all()
@@ -27,3 +28,11 @@ def delete(request,mov_id):
 	movie=Movie.objects.get(id=mov_id)
 	movie.delete()
 	return redirect('/')
+
+def update(request,id):
+	movie=Movie.objects.get(id=id)
+	form=MovieForm(request.POST or None,request.FILES,instance=movie)
+	if form.is_valid():
+		form.save()
+		return redirect('/')
+	return render(request,'update.html',{'movie':movie,'form':form})

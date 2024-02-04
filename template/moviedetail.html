@@ -11,6 +11,7 @@
 		<h4>{{movies.name}}</h4>
 		<h5>{{movies.movie_lang}}</h5>
 		<p>{{movies.desc}}</p>
+		<a class="btn btn-danger" href="{% url 'movie:update' movies.id %}">Update</a>
 		<a class="btn btn-danger" href="{% url 'movie:delete' movies.id %}">Delete</a>
 	</div>
 
